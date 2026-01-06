@@ -33,6 +33,22 @@ class LinkedList{
         }
     }
 
+    bool Is_Cyclic(){
+        Node* slow =Head;
+        Node* fast=Head;
+
+        bool iscycle=false;
+
+        while(fast->next!=NULL && fast!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                iscycle=true;
+            }
+        }
+        return iscycle;
+    }
+
     void printLL(){
         Node* temp=Head;
         while(temp!=NULL){
@@ -51,4 +67,5 @@ int main(){
     l1.push_back(1);
 
     l1.printLL();
+    l1.Is_Cyclic();
 }
